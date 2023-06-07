@@ -29,13 +29,14 @@ public class VitaSeguros {
             conexion = DriverManager.getConnection(url, usuario, contraseña);
             statement = conexion.createStatement();
             //statement.executeUpdate("insert into Afiliado (Id_Afiliado, identificación, nombre, edad, direccion, telefono, correo, beneficiarios) values (11, '09-9364764', 'Cosette Dullingham', 49, 'Apt 1008', '(184) 3627481', 'cboord0@webmd.com', 4)");
-            statement.executeUpdate("delete from Afiliado where Id_Afiliado = 11");
+            //statement.executeUpdate("delete from Afiliado where Id_Afiliado = 11");
+            statement.executeUpdate("update Afiliado set telefono ='(456) 6621422' WHERE Id_Afiliado= 8;");
             resultado = statement.executeQuery("select * from Afiliado");
             resultado.next();
            
             
             do {
-                System.out.println(resultado.getInt("Id_Afiliado")+" : "+resultado.getString("nombre"));
+                System.out.println(resultado.getInt("Id_Afiliado")+" : "+resultado.getString("telefono"));
             }
             while(resultado.next());
             
